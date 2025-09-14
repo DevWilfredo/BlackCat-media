@@ -63,7 +63,7 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row justify-between items-center mt-10 text-gray-400 gap-6">
         <p className="text-xs sm:text-sm max-w-md text-center lg:text-left">
           THIS WEBSITE IS NOT ENDORSED OR APPROVED BY, AND IS NOT IN ANY WAY
-          AFFILIATED WITH THE AMERICAN AUTOMOBILE ASSOCIATION, INC. ("AAA")
+          AFFILIATED WITH THE AMERICAN AUTOMOBILE ASSOCIATION, INC. (&quot;AAA&quot;)
         </p>
         <Image
           src="/blackcat-logo.svg"
