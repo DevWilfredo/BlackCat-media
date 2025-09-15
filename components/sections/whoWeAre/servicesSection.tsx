@@ -36,7 +36,8 @@ export default function ServicesSection() {
             </p>
           </div>
           <a
-            href="#"
+            href="https://calendly.com/wilfredo_pinto23"
+            target="_blank"
             className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
           >
             BOOK NOW <span>▶</span>
@@ -55,7 +56,8 @@ export default function ServicesSection() {
             </p>
           </div>
           <a
-            href="#"
+            href="https://calendly.com/wilfredo_pinto23"
+            target="_blank"
             className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
           >
             BOOK NOW <span>▶</span>
@@ -74,7 +76,8 @@ export default function ServicesSection() {
             </p>
           </div>
           <a
-            href="#"
+            href="https://calendly.com/wilfredo_pinto23"
+            target="_blank"
             className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
           >
             BOOK NOW <span>▶</span>
