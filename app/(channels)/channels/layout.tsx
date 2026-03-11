@@ -16,19 +16,12 @@ export default function ChannelsLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${montserratNormal.className} antialiased`}
-            >
-                <div className="relative w-full h-screen">
-                    {/* Header */}
-                    <Navbar imagePath="/images/blackCat-black.png" />
+            <body className={`${montserratNormal.className} antialiased`}>
+                <div className="relative flex min-h-screen flex-col">
+                    <Navbar variant="light" />
 
-                    {/* Main content */}
-                    <main>
-                        {children}
-
-                        <Footer />
-                    </main>
+                    <main className="flex-1">{children}</main>
+                    <Footer />
                 </div>
             </body>
         </html>

@@ -1,11 +1,17 @@
 import Image from "next/image";
-import React from "react";
 
 export default function Posts() {
-
   return (
-    <div className="posts-container flex w-full gap-10 px-20 py-10 bg-[#CBC5B9]">
-      <Image src='/images/carouselSection.webp' className="w-full" width={1920} height={589} alt='Section image' />
-    </div>
+    <section className="w-full bg-[#cbc5b9] px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-12">
+      <div className="mx-auto w-full max-w-[1360px] overflow-hidden">
+        <Image
+          src="/images/carouselSection.webp"
+          className="h-auto w-full object-cover"
+          width={1920}
+          height={589}
+          alt="Section image"
+        />
+      </div>
+    </section>
   );
 }

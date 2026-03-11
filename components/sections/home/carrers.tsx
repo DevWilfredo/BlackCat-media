@@ -51,14 +51,14 @@ export default function CareersSection() {
 
             <div className="flex flex-col items-start justify-end lg:items-end">
               <Image
-                src="/images/jobCat.png"
+                src="/images/blue-cat.webp"
                 alt="Black Cat careers icon"
                 width={160}
                 height={174}
                 className="h-auto w-[120px] sm:w-[138px] lg:w-[160px]"
               />
               <a
-                href="/careers"
+                href="/carrers"
                 className="-mt-1 inline-flex min-w-[172px] items-center justify-center bg-[#c9c9c9] px-6 py-2 text-[1.1rem] font-black uppercase tracking-[-0.04em] text-[#f2efe9] transition-colors hover:bg-[#bdbdbd]"
               >
                 APPLY NOW

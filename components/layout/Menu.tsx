@@ -15,7 +15,12 @@ import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
-export default function HomeMenu({ dark = false }: { dark?: boolean }) {
+type HomeMenuProps = {
+  dark?: boolean;
+  tone?: "white" | "black";
+};
+
+export default function HomeMenu({ dark = false, tone }: HomeMenuProps) {
   const [open, setOpen] = React.useState(false);
 
   const menuItems = [
@@ -26,8 +31,12 @@ export default function HomeMenu({ dark = false }: { dark?: boolean }) {
     { label: "BLOG", link: "/blogs" },
   ];
 
-  const triggerTextClass = dark ? "text-[#17192C]" : "text-white";
-  const triggerBorderClass = dark ? "border-[#17192C]" : "border-white/90";
+  const resolvedTone: "white" | "black" = tone ?? (dark ? "black" : "white");
+  const triggerIsWhite = open || resolvedTone === "white";
+  const triggerTextClass = triggerIsWhite ? "text-white" : "text-[#17192C]";
+  const triggerButtonImage = triggerIsWhite
+    ? "/images/header_button_white.png"
+    : "/images/header_button_black.png";
 
   return (
     <Drawer direction="top" open={open} onOpenChange={setOpen}>
@@ -37,8 +46,12 @@ export default function HomeMenu({ dark = false }: { dark?: boolean }) {
         >
           <span className="flex items-center gap-3 text-[1.05rem] font-semibold uppercase tracking-[0.08em]">
             <span>Menu</span>
-            <span
-              className={`h-[18px] w-[38px] transition-transform duration-200 group-hover:translate-x-0.5 ${triggerBorderClass} border`}
+            <Image
+              src={triggerButtonImage}
+              alt="Menu button"
+              width={38}
+              height={18}
+              className="h-[18px] w-[38px] object-contain transition-transform duration-200 group-hover:translate-x-0.5"
             />
           </span>
         </Button>

@@ -17,8 +17,8 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-0 h-[28vh] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.3)_100%)]" />
 
       <div className="relative z-10 min-h-[100svh]">
-        <div className="absolute bottom-8 left-3 max-w-[300px] text-[#b8b3a8] sm:bottom-10 sm:left-6 sm:max-w-[360px] lg:bottom-14 lg:left-12 lg:max-w-[420px]">
-          <h1 className="text-[1.2rem] font-black uppercase leading-[0.94] tracking-[-0.04em] sm:text-[1.7rem] lg:text-[2.05rem]">
+        <div className="absolute bottom-6 left-3 max-w-[230px] text-[#b8b3a8] sm:bottom-10 sm:left-6 sm:max-w-[360px] lg:bottom-14 lg:left-12 lg:max-w-[420px]">
+          <h1 className="text-[1rem] font-black uppercase leading-[0.94] tracking-[-0.04em] sm:text-[1.7rem] lg:text-[2.05rem]">
               Creative Studio
               <br />
               That Brings Ideas
@@ -31,12 +31,12 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="absolute bottom-10 right-8 flex max-w-[520px] flex-col items-end gap-4 text-right text-[#b8b3a8] sm:bottom-12 sm:right-6 lg:bottom-16 lg:right-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.06em] sm:text-base lg:text-[0.95rem]">
+        <div className="absolute right-3 top-[96px] flex max-w-[220px] flex-col items-start gap-3 text-left text-[#b8b3a8] sm:bottom-12 sm:right-6 sm:top-auto sm:max-w-[520px] sm:items-end sm:gap-4 sm:text-right lg:bottom-16 lg:right-12">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.06em] sm:text-base lg:text-[0.95rem]">
             Based in Madrid
           </p>
 
-          <nav className="flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm uppercase tracking-[0.04em] sm:text-base lg:text-[0.95rem]">
+          <nav className="flex flex-wrap gap-x-3 gap-y-1 text-[0.7rem] uppercase tracking-[0.04em] sm:justify-end sm:gap-x-4 sm:gap-y-2 sm:text-base lg:text-[0.95rem]">
             {links.map((link) => (
               <Link
                 key={link.label}

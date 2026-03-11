@@ -1,6 +1,7 @@
 export default function LinkedinSection() {
     return (
-        <div className="p-16 bg-[#D9DBDE] flex justify-between items-center">
+        <section className="bg-[#D9DBDE] px-5 py-9 sm:px-8 sm:py-11 lg:px-16 lg:py-14">
+          <div className="mx-auto flex w-full max-w-[1360px] flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="65"
@@ -18,9 +19,10 @@ export default function LinkedinSection() {
                 <circle cx="7" cy="5" r="2" fill="white" />
             </svg>
 
-            <h1 className="text-[#243376] font-bold text-4xl">
+            <h1 className="text-[#243376] text-[1.7rem] font-black uppercase leading-none tracking-[-0.03em] sm:text-[2.2rem] lg:text-[2.85rem]">
                 KNOW + ABOUT US
             </h1>
-        </div>
+          </div>
+        </section>
     );
 }

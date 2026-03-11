@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import HomeMenu from "@/components/layout/Menu";
 
-export default function Navbar({ imagePath }: { imagePath: string }) {
+type NavbarProps = {
+  variant?: "dark" | "light";
+};
+
+export default function Navbar({ variant = "light" }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const usesDarkChrome = imagePath.includes("black");
+  const pathname = usePathname();
+  const isDarkVariant = variant === "dark";
+  const isHome = pathname === "/";
+  const useWhiteMenuButton = isHome || pathname === "/about";
+  const logoPath = isDarkVariant ? "/blackcat-logo.svg" : "/images/blackCat-black.png";
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -21,30 +30,38 @@ export default function Navbar({ imagePath }: { imagePath: string }) {
     <header
       className={`pointer-events-none fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#070a14]/92 text-white shadow-[0_14px_36px_rgba(0,0,0,0.32)] backdrop-blur-xl supports-[backdrop-filter]:bg-[#070a14]/78"
-          : usesDarkChrome
-            ? "bg-transparent text-[#17192C]"
-            : "bg-transparent text-white"
+          ? isDarkVariant
+            ? "bg-[#11163a]/95 text-[#f0eeed] shadow-[0_14px_36px_rgba(0,0,0,0.34)] backdrop-blur-xl supports-[backdrop-filter]:bg-[#11163a]/85"
+            : "bg-[#f3f2f0]/96 text-[#17192c] shadow-[0_10px_28px_rgba(8,8,10,0.16)] backdrop-blur-xl supports-[backdrop-filter]:bg-[#f3f2f0]/88"
+          : isDarkVariant
+            ? isHome
+              ? "bg-transparent text-[#f0eeed]"
+              : "bg-[#11163a] text-[#f0eeed]"
+            : "bg-[#f3f2f0] text-[#17192c]"
       }`}
     >
       <div
-        className={`relative min-h-[120px] transition-[border-color,background-color] duration-300 ${
-          isScrolled ? "border-b border-white/10" : "border-b border-transparent"
+        className={`relative min-h-[88px] transition-[border-color,background-color] duration-300 sm:min-h-[102px] lg:min-h-[120px] ${
+          isScrolled
+            ? isDarkVariant
+              ? "border-b border-white/14"
+              : "border-b border-[#1a1e3d]/12"
+            : "border-b border-transparent"
         }`}
       >
-        <div className="pointer-events-auto absolute left-3 top-8 sm:left-6 sm:top-10 lg:left-12 lg:top-12">
+        <div className="pointer-events-auto absolute left-4 top-4 sm:left-6 sm:top-6 lg:left-12 lg:top-9">
           <Image
-            src={imagePath}
+            src={logoPath}
             alt="Blackcat Logo"
             width={278}
             height={56}
             priority
-            className="h-auto w-[180px] sm:w-[220px] lg:w-[278px]"
+            className="h-auto w-[150px] sm:w-[215px] lg:w-[278px]"
           />
         </div>
 
-        <div className="pointer-events-auto absolute right-4 top-8 sm:right-6 sm:top-10 lg:right-12 lg:top-12">
-          <HomeMenu dark={usesDarkChrome && !isScrolled} />
+        <div className="pointer-events-auto absolute right-4 top-4 sm:right-6 sm:top-6 lg:right-12 lg:top-9">
+          <HomeMenu tone={useWhiteMenuButton ? "white" : "black"} dark={!isDarkVariant} />
         </div>
       </div>
     </header>
