@@ -1,113 +1,116 @@
-// components/CareersSection.tsx
 import Image from "next/image";
+
+const careerGallery = [
+  {
+    src: "/images/timon-studler.webp",
+    alt: "People walking through a public space",
+  },
+  {
+    src: "/images/zero.webp",
+    alt: "Film crew working under a strong light",
+  },
+  {
+    src: "/images/christian.webp",
+    alt: "Person walking across a station platform",
+  },
+];
 
 export default function CareersSection() {
   return (
     <>
-      <section className="relative w-full text-black">
-        <div className="grid grid-cols-12 gap-6 max-w-full mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          {/* Columna izquierda con texto inferior */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col justify-end">
-            <div className="space-y-3 sm:space-y-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase">
+      <section
+        id="careers"
+        className="w-full bg-[#e6e3e3] px-6 py-8 text-[#1a1d35] sm:px-10 sm:py-10 lg:px-12 lg:py-9"
+      >
+        <div className="mx-auto max-w-[1280px]">
+          <div className="grid gap-8 md:grid-cols-3 md:gap-10 lg:gap-14">
+            {careerGallery.map((image) => (
+              <div key={image.src} className="relative aspect-[1/0.9] overflow-hidden bg-black/5">
+                <Image src={image.src} alt={image.alt} fill className="object-cover" />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid gap-10 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
+            <div className="max-w-[760px]">
+              <p className="text-[0.95rem] font-bold uppercase tracking-[-0.03em] text-[#9aa0ad]">
                 Careers
               </p>
-              <p className="text-lg sm:text-xl md:text-2xl font-extrabold leading-snug">
-                “WE’RE BUILDING A TEAM OF BOLD THINKERS WHO WANT TO CHALLENGE THE
-                ORDINARY.”
-              </p>
-            </div>
-          </div>
-
-          {/* Columna central con dos imágenes */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-6">
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[350px]">
-              <Image
-                src="/images/timon-studler.webp"
-                alt="People walking"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[350px]">
-              <Image
-                src="/images/natalie-parham.webp"
-                alt="Team working"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Columna derecha con logo + botón y texto abajo */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col justify-end">
-            <div className="mt-6 lg:mt-0 text-left lg:text-right">
-              <div className="flex flex-col items-start lg:items-end mb-4 sm:mb-5">
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mb-3 sm:mb-4">
-                  <Image
-                    src="/images/blue-cat.webp"
-                    alt="Logo careers"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <button className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-2 px-4 sm:py-2 sm:px-6 shadow-md transition text-xs sm:text-sm md:text-base">
-                  APPLY NOW
-                </button>
+              <h2 className="mt-5 max-w-[320px] text-[2.35rem] font-black uppercase leading-[0.93] tracking-[-0.055em] text-[#20243d] sm:text-[2.8rem]">
+                JOIN OUR CREATIVE TEAM!
+              </h2>
+              <div className="mt-14 space-y-5 text-[1rem] font-black uppercase leading-[1.08] tracking-[-0.03em] text-[#33479a]">
+                <p>WE&apos;RE LOOKING FOR CURIOUS MINDS READY TO CHALLENGE THE ORDINARY.</p>
+                <p className="max-w-[820px]">
+                  AT BLACK CAT MEDIA, CREATIVITY IS COLLABORATION. WE BRING TOGETHER
+                  FILMMAKERS, PRODUCERS, STRATEGISTS, AND DESIGNERS WHO WANT TO
+                  EXPERIMENT, GROW, AND SHAPE CULTURE THROUGH INNOVATIVE STORYTELLING.
+                </p>
               </div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase mb-2 sm:mb-3">
-                Who We Need
-              </p>
-              <p className="text-xs sm:text-sm leading-relaxed font-medium text-gray-900">
-                AT BLACK CAT MEDIA, WE SEEK PASSIONATE INDIVIDUALS WHO THRIVE IN
-                DYNAMIC, CREATIVE ENVIRONMENTS. WE OFFER OPPORTUNITIES TO GROW
-                PROFESSIONALLY AND PERSONALLY, SURROUNDED BY AN INNOVATIVE TEAM
-                DEDICATED TO IMPACTFUL STORYTELLING AND CONTENT CREATION.
-              </p>
+            </div>
+
+            <div className="flex flex-col items-start justify-end lg:items-end">
+              <Image
+                src="/images/jobCat.png"
+                alt="Black Cat careers icon"
+                width={160}
+                height={174}
+                className="h-auto w-[120px] sm:w-[138px] lg:w-[160px]"
+              />
+              <a
+                href="/careers"
+                className="-mt-1 inline-flex min-w-[172px] items-center justify-center bg-[#c9c9c9] px-6 py-2 text-[1.1rem] font-black uppercase tracking-[-0.04em] text-[#f2efe9] transition-colors hover:bg-[#bdbdbd]"
+              >
+                APPLY NOW
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sección con grafiti + computadora */}
-      <section className="relative w-full flex justify-center items-center overflow-hidden">
-        <div className="relative w-full max-w-[1600px]">
+      <section className="relative overflow-hidden bg-[#efeeea] px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
+        <div className="pointer-events-none absolute inset-0 opacity-90">
           <Image
             src="/images/marco-home.webp"
-            alt="Background grafiti"
-            width={1620}
-            height={800}
-            className="w-full h-auto object-cover"
+            alt=""
+            fill
+            className="object-cover object-center mix-blend-multiply"
           />
+        </div>
 
-          {/* Imagen de la computadora */}
-          <div className="absolute top-[40px] sm:top-[70px] md:top-[90px] left-[20px] sm:left-[50px] md:left-[100px] w-[90%] sm:w-[88%] md:w-[85%]">
-            <Image
-              src="/images/computer.webp"
-              alt="Computer"
-              width={1200}
-              height={800}
-              className="w-full h-auto"
-            />
+        <div className="relative mx-auto w-full max-w-[1280px] border border-[#314fa5] bg-[#10120f] shadow-[0_0_0_1px_rgba(49,79,165,0.12)]">
+          <Image
+            src="/images/computer.webp"
+            alt="Computer desk scene"
+            width={1200}
+            height={800}
+            className="h-auto w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,10,8,0.78)_0%,rgba(10,14,11,0.42)_35%,rgba(15,14,10,0.3)_70%,rgba(16,15,10,0.28)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14)_0%,rgba(0,0,0,0.2)_50%,rgba(0,0,0,0.44)_100%)]" />
 
-            {/* Contenido de texto */}
-            <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center px-4 sm:px-6 md:px-8 text-white">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-                OUT OF <br /> THE BOX
+          <div className="absolute inset-0 flex flex-col justify-between px-5 py-5 text-[#f3efe6] sm:px-8 sm:py-7 md:px-12 md:py-10 lg:px-14 lg:py-12">
+            <div>
+              <h2 className="max-w-[760px] text-[2.55rem] font-black uppercase leading-[0.92] tracking-[-0.06em] text-[#f5f2ea] sm:text-[3.6rem] md:text-[4.7rem] lg:text-[5.4rem]">
+                OUT OF THE BOX
               </h2>
-              <p className="mt-2 text-xs sm:text-sm font-semibold tracking-wide">
+              <p className="mt-4 text-[0.95rem] font-black uppercase tracking-[-0.03em] text-[#fcf8f0] sm:text-[1.1rem]">
                 OUR BLOG ▶
               </p>
-              <h3 className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl font-bold uppercase">
-                “How we turned a partnership into a cultural platform”
+            </div>
+
+            <div className="max-w-[980px]">
+              <h3 className="text-[1.1rem] font-black uppercase leading-[1.02] tracking-[-0.04em] text-[#e7e0d5] sm:text-[1.65rem] md:text-[2.25rem] lg:text-[2.65rem]">
+                &quot;HOW WE TURNED A PARTNERSHIP INTO A CULTURAL PLATFORM&quot;
               </h3>
-              <div className="mt-3 sm:mt-4">
-                <p className="text-[10px] sm:text-xs font-bold uppercase">Excerpt:</p>
-                <p className="text-xs sm:text-sm max-w-md sm:max-w-xl mt-1 leading-relaxed">
-                  “It started with a camera, a podcast mic, and the idea that art
-                  deserves better stories. Here’s how Black Cat Media evolved from
-                  a partnership into a platform amplifying underrepresented
-                  voices.”
+              <div className="mt-6 max-w-[760px]">
+                <p className="text-[0.8rem] font-black uppercase tracking-[-0.03em] text-[#efe8dc] sm:text-[0.95rem]">
+                  EXCERPT:
+                </p>
+                <p className="mt-3 text-[0.88rem] font-bold uppercase leading-[1.06] tracking-[-0.025em] text-[#ddd5c8] sm:text-[1rem] md:text-[1.1rem]">
+                  &quot;IT STARTED WITH A CAMERA, A PODCAST MIC, AND THE IDEA THAT ART
+                  DESERVES BETTER STORIES. HERE&apos;S HOW BLACK CAT MEDIA EVOLVED FROM A
+                  PARTNERSHIP INTO A PLATFORM AMPLIFYING UNDERREPRESENTED VOICES.&quot;
                 </p>
               </div>
             </div>

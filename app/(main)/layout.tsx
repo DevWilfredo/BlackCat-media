@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${montserratNormal.className} antialiased`}
       >
-        <Navbar imagePath="./blackcat-logo.svg" />
+        <Navbar imagePath="/blackcat-logo.svg" />
         {children}
         <Footer />
       </body>

@@ -1,70 +1,30 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function WhoWeAre() {
-  const cards = [
-    {
-      src: "/images/whoWeAre1.webp",
-      alt: "Brand",
-      linkText: "Book Now >",
-      title: "Studio",
-      description:
-        "Our studio is a shared space with Guava House in Madrid, fully equipped with high-end cameras, professional audio gear, and dynamic lighting setups.",
-      highlight: "Learn More...",
-      bigText: "WHO",
-    },
-    {
-      src: "/images/whoWeAre2.webp",
-      alt: "Services",
-      linkText: "Connect >",
-      title: "Services",
-      description:
-        "We specialise in creating impactful video podcasts, professional photo and video sessions, and tailored social media strategies to amplify your brand.",
-      highlight: "Learn More...",
-      bigText: "WE",
-    },
-    {
-      src: "/images/whoWeAre3.webp",
-      alt: "Brand",
-      linkText: "Buy Now >",
-      title: "Brand",
-      description:
-        "A space for culture and creativity: from exclusive merchandise drops to curated products by our collaborators.",
-      highlight: "Learn More...",
-      bigText: "ARE",
-    },
-  ];
-
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 w-full h-auto md:h-screen">
-      {cards.map((card, index) => (
-        <div key={index} className="relative group overflow-hidden w-full h-72 md:h-full">
-          <Image
-            src={card.src}
-            alt={card.alt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            priority={index === 0}
-          />
+    <section className="w-full bg-[#eeeceb] px-6 py-14 sm:px-10 sm:py-16 lg:px-20 lg:py-20">
+      <div className="flex min-h-[220px] flex-col justify-between gap-10 lg:min-h-[220px] lg:flex-row lg:items-start">
+        <div className="max-w-[640px]">
+          <h2 className="max-w-[500px] text-[2.35rem] font-black uppercase leading-[0.96] tracking-[-0.05em] text-[#181c3c]">
+            Pitch Your Show,
+            <br />
+            We&acute;ll Produce It
+          </h2>
 
-          {/* Overlay superior */}
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-start p-4 md:p-8 text-white">
-            <h3 className="text-sm md:text-lg uppercase tracking-wide text-center">
-              {card.linkText}
-            </h3>
-          </div>
-
-          {/* Contenido inferior */}
-          <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-8 text-white text-center">
-            <h2 className="text-lg md:text-2xl font-bold mt-2">{card.title}</h2>
-            <p className="text-xs md:text-sm mt-4 text-center px-2 md:px-15">
-              {card.description} <br />
-              <strong className="font-bold">{card.highlight}</strong>
-            </p>
-            <h1 className="text-4xl md:text-9xl font-bold mt-4 md:mt-8">{card.bigText}</h1>
-          </div>
+          <p className="mt-10 text-[1.05rem] font-medium uppercase tracking-[-0.03em] text-[#9ea5af] sm:text-[1.2rem] lg:mt-12 lg:text-[1.42rem]">
+            &ldquo;Your platform to express, create and innovate&rdquo;
+          </p>
         </div>
-      ))}
+
+        <div className="flex w-full justify-start lg:justify-end lg:pt-10">
+          <Link
+            href="#"
+            className="inline-flex min-w-[160px] items-center justify-center bg-[#e2ddd6] px-7 py-3 text-[1.15rem] font-black uppercase tracking-[-0.03em] text-[#263784] transition-colors hover:bg-[#d8d2ca]"
+          >
+            Pitch Here
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

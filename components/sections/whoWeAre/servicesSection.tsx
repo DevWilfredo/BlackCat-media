@@ -1,87 +1,60 @@
-// components/ServicesSection.jsx
 import Image from "next/image";
+
+const services = [
+  "TIME & SPACE",
+  "BUILDERS",
+  "COLLABS",
+];
 
 export default function ServicesSection() {
   return (
-    <section className="relative bg-white py-12 px-6 lg:px-16">
-      {/* Título de fondo (OUR SERVICES) */}
-      <h2 className="absolute top-0 left-6 lg:left-16 text-[6rem] font-extrabold text-black/5 leading-none z-0">
-        OUR SERVICES
-      </h2>
+    <section className="relative bg-[#f3f2f0] px-6 pb-8 pt-4 lg:px-8 lg:pb-10 lg:pt-2">
+      <div className="mx-auto max-w-[1440px]">
+        <h2 className="pointer-events-none text-[4.8rem] font-black uppercase leading-[0.86] tracking-[-0.08em] text-black/[0.05] sm:text-[6.2rem] lg:pl-4 lg:text-[8.4rem]">
+          OUR SERVICES
+        </h2>
 
-      {/* Contenedor principal */}
-      <div className="relative bg-[#F2F0EF] px-8 py-12 lg:px-20 lg:py-16 shadow-md z-10">
-        {/* Imagen del gato (sobresale del contenedor) */}
-        <div className="absolute -top-10 right-10 w-[120px] h-[120px]">
-          <Image
-            src="/catBlue.svg" // ⚠️ reemplaza con tu imagen real
-            alt="Cat"
-            width={200}
-            height={200}
-            className="object-contain"
-          />
-        </div>
-
-        {/* Sección 1 */}
-        <div className="flex items-start justify-between mb-16">
-          <div>
-            <h3 className="text-5xl font-extrabold text-[#1A1A1A]">
-              TIME & SPACE
-            </h3>
-            <p className="mt-2 max-w-2xl text-sm font-medium text-[#1A1A1A]/70">
-              OUR STUDIO IS A SHARED SPACE WITH GUAVA HOUSE IN MADRID, FULLY
-              EQUIPPED WITH HIGH-END CAMERAS, PROFESSIONAL AUDIO GEAR, AND
-              DYNAMIC LIGHTING SETUPS, IS AVAILABLE FOR RENTAL AND CREATIVE
-              COLLABORATIONS.
-            </p>
+        <div className="relative -mt-2 bg-[#eceaea] px-4 pb-6 pt-10 sm:px-6 lg:px-10 lg:pb-8 lg:pt-10">
+          <div className="absolute right-4 top-[-44px] z-20 h-[112px] w-[112px] lg:right-6 lg:top-[-48px] lg:h-[128px] lg:w-[128px]">
+            <Image
+              src="/catBlue.svg"
+              alt="Cat"
+              width={128}
+              height={128}
+              className="h-full w-full object-contain"
+            />
           </div>
-          <a
-            href="https://calendly.com/blackcat-test"
-            target="_blank"
-            className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
-          >
-            BOOK NOW <span>▶</span>
-          </a>
-        </div>
 
-        {/* Sección 2 */}
-        <div className="flex items-start justify-between mb-16">
-          <div>
-            <h3 className="text-5xl font-extrabold text-[#1A1A1A]">BUILDERS</h3>
-            <p className="mt-2 max-w-2xl text-sm font-medium text-[#1A1A1A]/70">
-              OUR STUDIO IS A SHARED SPACE WITH GUAVA HOUSE IN MADRID, FULLY
-              EQUIPPED WITH HIGH-END CAMERAS, PROFESSIONAL AUDIO GEAR, AND
-              DYNAMIC LIGHTING SETUPS, IS AVAILABLE FOR RENTAL AND CREATIVE
-              COLLABORATIONS.
-            </p>
-          </div>
-          <a
-            href="https://calendly.com/blackcat-test"
-            target="_blank"
-            className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
-          >
-            BOOK NOW <span>▶</span>
-          </a>
-        </div>
+          <div className="relative px-1 py-2 sm:px-2 lg:px-0 lg:py-3">
+            {services.map((service, index) => (
+              <div
+                key={service}
+                className={`grid grid-cols-1 gap-4 px-2 py-3 sm:px-4 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center lg:px-0 lg:py-4 ${
+                  index < services.length - 1 ? "mb-3 lg:mb-4" : ""
+                }`}
+              >
+                <div>
+                  <h3 className="text-[3.2rem] font-black uppercase leading-[0.9] tracking-[-0.08em] text-[#111634] sm:text-[4.4rem] lg:text-[4.9rem]">
+                    {service}
+                  </h3>
+                  <p className="mt-2 max-w-[760px] text-[0.72rem] font-semibold uppercase leading-[1.15] tracking-[-0.03em] text-[#2c3150]/84 sm:text-[0.82rem] lg:max-w-[700px] lg:text-[0.86rem]">
+                    OUR STUDIO IS A SHARED SPACE WITH GUAVA HOUSE IN MADRID, FULLY EQUIPPED WITH HIGH-END
+                  </p>
+                </div>
 
-        {/* Sección 3 */}
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="text-5xl font-extrabold text-[#1A1A1A]">COLLABS</h3>
-            <p className="mt-2 max-w-2xl text-sm font-medium text-[#1A1A1A]/70">
-              OUR STUDIO IS A SHARED SPACE WITH GUAVA HOUSE IN MADRID, FULLY
-              EQUIPPED WITH HIGH-END CAMERAS, PROFESSIONAL AUDIO GEAR, AND
-              DYNAMIC LIGHTING SETUPS, IS AVAILABLE FOR RENTAL AND CREATIVE
-              COLLABORATIONS.
-            </p>
+                <div className="justify-self-start lg:justify-self-end">
+                  <a
+                    href="https://calendly.com/blackcat-test"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-[1.05rem] font-black uppercase tracking-[-0.04em] text-[#111634]"
+                  >
+                    BOOK NOW <span aria-hidden="true">▶</span>
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-          <a
-            href="https://calendly.com/blackcat-test"
-            target="_blank"
-            className="text-lg font-extrabold text-[#1A1A1A] hover:underline flex items-center gap-1"
-          >
-            BOOK NOW <span>▶</span>
-          </a>
         </div>
       </div>
     </section>

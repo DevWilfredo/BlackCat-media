@@ -1,45 +1,62 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
-    return (
-        <section className="relative w-full h-screen">
-            {/* Fondo con la imagen */}
-            <Image
-                src="/images/hero-image.webp"
-                alt="Blackcat hero background"
-                fill
-                priority
-                className="object-cover"
-            />
+  const links = [
+    { href: "/channels", label: "Channels" },
+    { href: "/carrers", label: "Careers" },
+    { href: "#connect", label: "Connect" },
+    { href: "/blogs", label: "Blog" },
+  ];
 
-            {/* Overlay para dar contraste si lo necesitas */}
-            <div className="absolute inset-0 bg-black/40"></div>
+  return (
+    <section
+      className="relative min-h-[100svh] w-full overflow-hidden bg-black bg-cover bg-center text-white"
+      style={{ backgroundImage: "url('/images/hero-image.webp')" }}
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.12)_30%,rgba(0,0,0,0.3)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[28vh] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.3)_100%)]" />
 
-            {/* Contenido */}
-            <div className="relative z-10 flex flex-col h-full justify-end p-4 md:p-16 text-white">
-                {/* Footer info */}
-                <div className="flex flex-col md:flex-row justify-between text-sm">
-                    <div className="max-w-lg">
-                        <h2 className="text-lg md:text-2xl font-bold">
-                            CREATIVE STUDIO <br />
-                            <span className="font-normal text-sm md:text-base">
-                                THAT BRINGS IDEAS TO LIFE THROUGH INNOVATIVE STORYTELLING.
-                            </span>
-                        </h2>
-                    </div>
-                    <nav className="flex flex-col md:flex-row gap-2 md:gap-4 uppercase mt-4 md:mt-0">
-                        <div className="flex flex-col items-start md:items-end">
-                            <p className="uppercase text-xs md:text-sm">Based in Madrid</p>
-                            <div className="flex flex-wrap gap-2 md:gap-4">
-                                <a href="#" className="text-xs md:text-sm">Channels</a>
-                                <a href="#" className="text-xs md:text-sm">Careers</a>
-                                <a href="#" className="text-xs md:text-sm">Connect</a>
-                                <a href="#" className="text-xs md:text-sm">Blog</a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </section>
-    );
+      <div className="relative z-10 min-h-[100svh]">
+        <div className="absolute bottom-8 left-3 max-w-[300px] text-[#b8b3a8] sm:bottom-10 sm:left-6 sm:max-w-[360px] lg:bottom-14 lg:left-12 lg:max-w-[420px]">
+          <h1 className="text-[1.2rem] font-black uppercase leading-[0.94] tracking-[-0.04em] sm:text-[1.7rem] lg:text-[2.05rem]">
+              Creative Studio
+              <br />
+              That Brings Ideas
+              <br />
+              To Life Through
+              <br />
+              Innovative
+              <br />
+              Storytelling.
+          </h1>
+        </div>
+
+        <div className="absolute bottom-10 right-8 flex max-w-[520px] flex-col items-end gap-4 text-right text-[#b8b3a8] sm:bottom-12 sm:right-6 lg:bottom-16 lg:right-12">
+          <p className="text-sm font-semibold uppercase tracking-[0.06em] sm:text-base lg:text-[0.95rem]">
+            Based in Madrid
+          </p>
+
+          <nav className="flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm uppercase tracking-[0.04em] sm:text-base lg:text-[0.95rem]">
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="transition-colors hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="pointer-events-none absolute bottom-12 right-2 hidden flex-col gap-2 lg:flex">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c8c1b4]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c8c1b4]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c8c1b4]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c8c1b4]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c8c1b4]" />
+        </div>
+      </div>
+    </section>
+  );
 }
